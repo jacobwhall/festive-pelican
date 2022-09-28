@@ -54,10 +54,11 @@ def hpc_dask_cluster(num_procs: int, **kwargs) -> PBSCluster:
     return cluster
 
 
-def hpc_dask_task_runner(num_procs: int, **kwargs) -> DaskTaskRunner:
-    dask_task_runner_kwargs = {
-        "cluster_class": PBSCluster,
-        "cluster_kwargs": get_cluster_kwargs(**kwargs),
-        "adapt_kwargs": {"minimum": num_procs, "maximum": num_procs},
-    }
-    return DaskTaskRunner(**dask_task_runner_kwargs)
+class HPCDaskTaskRunner(DaskTaskRunner):
+    def __init__(self, num_procs: int, **kwargs):
+        dask_task_runner_kwargs = {
+            "cluster_class": PBSCluster,
+            "cluster_kwargs": get_cluster_kwargs(**kwargs),
+            "adapt_kwargs": {"minimum": num_procs, "maximum": num_procs},
+        }
+        super().__init__(**dask_task_runner_kwargs)

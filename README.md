@@ -4,10 +4,10 @@ A lil python package to make dask easier on the W&M HPC
 
 ## How to use
 
-This package currently provides two functions that take the same arguments: `hpc_dask_cluster` and `hpc_dask_cluster`.
-The former returns a [dask_jobqueue `PBSCluster`](https://jobqueue.dask.org/en/latest/generated/dask_jobqueue.PBSCluster.html), and the latter returns a [Prefect `DaskTaskRunner`](https://prefecthq.github.io/prefect-dask/#running-tasks-on-dask).
+This package currently provides a function and a class that take the same arguments: `hpc_dask_cluster` and `HPCDaskTaskRunner`.
+The former returns a [dask_jobqueue `PBSCluster`](https://jobqueue.dask.org/en/latest/generated/dask_jobqueue.PBSCluster.html), and the latter inherits [Prefect's `DaskTaskRunner`](https://prefecthq.github.io/prefect-dask/#running-tasks-on-dask).
 
-Here are the arguments these functions take:
+Here are the arguments they take:
 
 ```
 num_procs: int,                        # number of processes you'd like
