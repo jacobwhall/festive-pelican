@@ -1,0 +1,26 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "festivepelican"
+version = "0.0.1"
+authors = [
+  { name="Jacob Hall", email="jwhall@wm.edu" },
+]
+description = "A lil python package to make dask easier on the W&M HPC"
+readme = "README.md"
+requires-python = ">=3.7"
+dependencies = [
+    "prefect-dask",
+    "dask-jobqueue",
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+    "Operating System :: POSIX :: Linux",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/jacobwhall/festive-pelican"
+"Bug Tracker" = "https://github.com/jacobwhall/festive-pelican/issues"
